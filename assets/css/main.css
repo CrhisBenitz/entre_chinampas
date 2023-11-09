@@ -2000,7 +2000,8 @@ button,
       top: 0;
       width: inherit; }
   #sidebar.inactive {
-    margin-left: -26em; }
+    margin-left: -26em;
+    position: fixed;}
   @media screen and (max-width: 1680px) {
     #sidebar {
       width: 24em; }
