@@ -10,7 +10,7 @@ function initializeTooltips() {
         tooltipElement.textContent = tooltipText;
         tooltip.appendChild(tooltipElement);
     });
-};
+}
 
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -34,4 +34,4 @@ document.addEventListener("DOMContentLoaded", function() {
             .catch(error => {
                 console.error(`Error fetching ${articleId}.html:`, error);
             });
-    });
+    });)
