@@ -2002,7 +2002,7 @@ button,
   #sidebar.inactive {
     margin-left: -26em;
     position: fixed;}
-  @media screen and (max-width: 3000px) {
+  /* @media screen and (max-width: 3000px) {
     #sidebar {
       width: 24em; }
       #sidebar > .inner {
@@ -2021,7 +2021,7 @@ button,
         #sidebar .toggle:before {
           font-size: 1.5rem; }
       #sidebar.inactive {
-        margin-left: -24em; } }
+        margin-left: -24em; } } */
   @media screen and (max-width: 2000px) {
     #sidebar {
       box-shadow: 0 0 5em 0 rgba(0, 0, 0, 0.175);
