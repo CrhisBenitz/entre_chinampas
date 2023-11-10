@@ -12,14 +12,14 @@
 
 	// Breakpoints.
 		breakpoints({
-			xlarge:   [ '1281px',  '1680px' ],
-			large:    [ '981px',   '1280px' ],
+			xlarge:   [ '2000px',  '3000px' ],
+			large:    [ '981px',   '2000px' ],
 			medium:   [ '737px',   '980px'  ],
 			small:    [ '481px',   '736px'  ],
 			xsmall:   [ '361px',   '480px'  ],
 			xxsmall:  [ null,      '360px'  ],
-			'xlarge-to-max':    '(min-width: 1681px)',
-			'small-to-xlarge':  '(min-width: 481px) and (max-width: 1680px)'
+			'xlarge-to-max':    '(min-width: 3001px)',
+			'small-to-xlarge':  '(min-width: 481px) and (max-width: 3000px)'
 		});
 
 	// Stops animations/transitions until the page has ...
