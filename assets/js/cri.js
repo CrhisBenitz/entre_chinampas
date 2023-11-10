@@ -10,7 +10,6 @@ function initializeTooltips() {
         tooltipElement.textContent = tooltipText;
         tooltip.appendChild(tooltipElement);
     });
-}
 });
 
 
