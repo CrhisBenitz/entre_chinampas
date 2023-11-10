@@ -9,9 +9,8 @@ function initializeTooltips() {
         tooltipElement.className = 'tooltiptext';
         tooltipElement.textContent = tooltipText;
         tooltip.appendChild(tooltipElement);
-    };
-};
-
+    });
+}
 
 document.addEventListener("DOMContentLoaded", function() {
     const articleIds = ['precontent', 'acknowledgments', 'content-index', 'sec1', 'sec2', 'sec3', 'sec4', 'refs'];
@@ -34,6 +33,5 @@ document.addEventListener("DOMContentLoaded", function() {
             .catch(error => {
                 console.error(`Error fetching ${articleId}.html:`, error);
             });
-    }
-
-  };
+    });
+});
