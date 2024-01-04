@@ -1,3 +1,55 @@
+
+function openLightbox(lb) {
+    var overlay = document.getElementById("overlay");
+    var lightbox = document.getElementById(lb);
+
+    // Display the overlay and lightbox
+    overlay.style.display = "block";
+    lightbox.style.display = "block";
+
+    // Add the 'lightbox-active' class to the body
+    document.body.classList.add("lightbox-active");
+}
+
+
+function closeLightbox() {
+  var overlay = document.getElementById("overlay");
+
+  // Find the active lightbox
+  var lightboxes = document.querySelectorAll('.lightbox-container');
+  var activeLightbox;
+
+  for (var i = 0; i < lightboxes.length; i++) {
+      if (window.getComputedStyle(lightboxes[i]).display !== 'none') {
+          activeLightbox = lightboxes[i];
+          break;
+      }
+  }
+
+  if (!activeLightbox) return; // No active lightbox found
+
+  // Find the iframe within the active lightbox
+  var iframe = activeLightbox.querySelector('iframe');
+
+  // Hide the overlay and active lightbox
+  overlay.style.display = "none";
+  activeLightbox.style.display = "none";
+
+  // Remove the 'lightbox-active' class from the body
+  document.body.classList.remove("lightbox-active");
+
+  if (iframe.tagName.toLowerCase() === 'iframe') {
+     var iframeContent = iframe.contentDocument || iframe.contentWindow.document;
+     var videoElement = iframeContent.querySelector('video');
+
+     if (videoElement && typeof videoElement.pause === 'function') {
+         videoElement.pause();
+     }
+ }
+}
+
+
+
 // Function to initialize figure numbers, references, and hyperlinks
 function initializeFiguresAndReferences() {
   var figures = document.querySelectorAll(".figure");
@@ -26,23 +78,7 @@ function initializeFiguresAndReferences() {
   });
 }
 
-function toggleVideo() {
-    var videoContainer = document.getElementById('video-container');
-    var iframe = videoContainer.querySelector('iframe');
-    var displayValue = videoContainer.style.display === 'none' ? 'block' : 'none';
 
-    // Set the display value
-    videoContainer.style.display = displayValue;
-
-    // If the video container is set to display, play the video
-    if (displayValue === 'block') {
-        var videoId = document.querySelector('.video-trigger').getAttribute('data-video-id');
-        iframe.src = 'https://www.youtube.com/embed/' + videoId + '?rel=0&autoplay=1';
-    } else {
-        // If the video container is hidden, stop the video
-        iframe.src = '';
-    }
-}
 
 //
 // function printActivity(sectionId) {
@@ -139,8 +175,6 @@ function printActivity(sectionId) {
 
 
 
-
-
 // Function to initialize tooltips
 function initializeTooltips() {
     const tooltips = document.querySelectorAll('.tooltip');
@@ -150,10 +184,13 @@ function initializeTooltips() {
 
         const tooltipElement = document.createElement('span');
         tooltipElement.className = 'tooltiptext';
-        tooltipElement.textContent = tooltipText;
+        tooltipElement.innerHTML = tooltipText; // Use innerHTML instead of textContent
         tooltip.appendChild(tooltipElement);
     });
 }
+
+
+
 
 document.addEventListener("DOMContentLoaded", function () {
     const articleIds = ['precontent', 'acknowledgments', 'content-index', 'sec1', 'sec2', 'sec3', 'sec4', 'refs'];
@@ -187,11 +224,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
             // Now call initializeFiguresAndReferences
             initializeFiguresAndReferences();
-
-            // Assuming you have a .video-trigger element in your HTML
-            document.querySelector('.video-trigger').addEventListener('click', function() {
-                toggleVideo();
-            });
 
         });
 });

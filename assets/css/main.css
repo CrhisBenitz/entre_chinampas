@@ -2373,32 +2373,184 @@ button,
     text-align: right;
   }
 
-  /* Style for the video container */
-  .video-container {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 560px;
-    height: 315px;
-    background-color: #000;
-    z-index: 9999;
-    display: none;
+
+  #overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7); /* semi-transparent black overlay */
+      z-index: 999; /* higher z-index than other elements */
   }
 
-  /* Style for the close button */
-  .close-btn {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    cursor: pointer;
-    color: #fff;
-    font-size: 20px;
-    z-index: 10000;
+  /* Style for the lightbox container */
+  .lightbox-container {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 40%;
+      height: 40%;
+      max-width: 90vw;
+      max-height: 90vh;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* optional shadow effect */
+      z-index: 1000; /* higher z-index than overlay */
   }
 
-
-  .video-trigger {
-    font-weight: bold;
-    color: rgb(98,125,137);
+  .lightbox-container img {
+      width: 100%;
+      height: auto;
   }
+
+  /* Add this style to hide the scrollbar when the lightbox is active */
+  body.lightbox-active {
+      overflow: hidden;
+  }
+
+  .lightbox-container iframe {
+    width: 100%; /* Make the iframe responsive */
+    height: 100%; /* Make the iframe responsive */
+    border: none; /* Remove iframe border */
+}
+
+  /* Optionally, you can add some padding to the iframe container */
+  .lightbox-container .iframe-container {
+      padding: 20px;
+  }
+
+  .lightbox-trigger {
+    -moz-transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
+    -webkit-transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
+    -ms-transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
+    transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
+    border-bottom: dotted 1px;
+    color: #f56a6a;
+    text-decoration: none; }
+    a:hover {
+      border-bottom-color: #f56a6a;
+      color: #f56a6a !important; }
+      a:hover strong {
+        color: inherit; }
+
+
+
+  .content-index li {
+    color: #39464f;
+    font-family: "Roboto Slab", serif;
+    font-weight: 700;
+    line-height: 1.5;
+    margin: 0 0 1em 0; }
+
+  .content-index ul {
+      padding-top: .5em;}
+
+
+    .content-index  li > a {
+      color: inherit;
+      border-bottom: 0; }
+
+
+    .content-index  li > a > em {
+        font-weight: 300;}
+
+    #nav-index li {
+      color: #39464f;
+      font-family: "Roboto Slab", serif;
+      font-weight: 700;
+      line-height: 1.5;
+      margin: 0 0 1em 0; }
+
+    #nav-index ul {
+        padding-top: .5em;}
+
+
+      #nav-index  li > a {
+        color: inherit;
+        border-bottom: 0; }
+
+
+      #nav-index  li > a > em {
+          font-weight: 300;}
+
+
+    .container {
+      display: flex;
+      align-content: center;
+      align-items: stretch;
+      justify-content: center;
+    }
+
+    .square {
+      border-radius: 10px;
+      margin-right: 10px;
+      padding: 10px;
+      margin-block-end: 5%;
+      margin-inline: 2%;
+      display: flex;
+      align-items: center;
+      justify-content: start;
+      border: 2px solid #f56a6a;
+      flex-direction: column;
+      width: 35%;
+    }
+
+    .title-box-left {
+      top: -22px;
+      left: -10%;
+      position: relative;
+      width: 70%;
+      height: 24px;
+      border-radius: 10px;
+      background-color: #fcee4f;
+      display: flex;
+      align-items: stretch;
+      justify-content: center;
+    }
+
+    .title-box-right {
+      top: -22px;
+      left: 10%;
+      position: relative;
+      width: 70%;
+      height: 24px;
+      border-radius: 10px;
+      background-color: #fcee4f;
+      display: flex;
+      align-items: stretch;
+      justify-content: center;
+    }
+
+    .text-box-right {
+      border: 1px solid black;
+      width: 90%;
+      padding: 10px;
+      height: 100%;
+
+      }
+
+    .text-box-left {
+      border: 1px solid black;
+      width: 90%;
+      padding: 10px;
+      text-align: right;
+      height: 100%;
+
+      }
+
+    .text-box-brown {
+    background-color: rgb(197, 182, 184);
+    width: 75%;
+    padding: 5%;
+    text-align: center;
+    color: black; /* Set text color to black */
+    margin: 0 auto; /* Center the text box horizontally */
+    padding-bottom: 0px;
+    }
+
+    .text-box-brown p {
+      text-align: center;
+      padding-bottom: 2em;
+    }
