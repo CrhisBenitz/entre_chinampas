@@ -130,6 +130,15 @@ function printActivity(sectionId) {
         originalInputValues[inputElement.id] = inputElement.value;
     });
 
+    const trumbowygData = {};
+    const trumbowygIDs = [];
+    const editors = document.querySelectorAll('.rich-editor');
+    editors.forEach(editor => {
+        const editorId = editor.id;
+        trumbowygIDs.push(editorId);
+        trumbowygData[editorId] = $('#' + editorId).trumbowyg('html');
+    });
+
     // Clone the section element to avoid modifying the original content
     var clonedSection = printContents.cloneNode(true);
 
@@ -170,7 +179,28 @@ function printActivity(sectionId) {
         restoredInputElements.forEach(function(inputElement) {
             inputElement.value = originalInputValues[inputElement.id];
         });
+
+        var oldTBs = document.querySelectorAll(".trumbowyg-box");
+        oldTBs.forEach(function(oldTB,index) {
+          // Create a new textarea
+          var newTextarea = document.createElement('textarea');
+          // Set any attributes, styles, or other properties for the new textarea if needed
+          newTextarea.id = trumbowygIDs[index];
+          newTextarea.className = "rich-editor"
+          // Replace the current div with the new textarea
+          oldTB.replaceWith(newTextarea);
+        });
+
+        const newTB = document.querySelectorAll(".rich-editor");
+        console.log(newTB);
+        newTB.forEach(TB => {
+            const editorId = TB.id;
+            reinitializeEditor(editorId,trumbowygData[editorId]);
+            console.log(trumbowygData[editorId]);
+        });
     });
+
+
 }
 
 
@@ -190,7 +220,89 @@ function initializeTooltips() {
 }
 
 
+// Function to initialize editors
+function initializeEditors() {
+    const editors = document.querySelectorAll('.rich-editor');
 
+    editors.forEach(editor => {
+        // Assuming each editor has a unique ID
+        const editorId = editor.id;
+        const placeholder = editor.placeholder
+
+        // jQuery code for Trumbowyg initialization over the ID of each editor element
+        $('#' + editorId).trumbowyg({
+          autogrowOnEnter: true,
+          btnsDef: {
+                  // Create a new dropdown
+                  image: {
+                      dropdown: ['insertImage', 'upload'],
+                      ico: 'insertImage'
+                          }},
+          // Redefine the button pane
+          btns: [
+              ['formatting'],
+              ['strong', 'em', 'del'],
+              ['superscript', 'subscript'],
+              ['link'],
+              ['image'], // Our fresh created dropdown
+              ['justifyLeft', 'justifyCenter', 'justifyRight', 'justifyFull'],
+              ['unorderedList', 'orderedList'],
+              ['horizontalRule'],
+              ['removeformat'],
+              ['fullscreen']],
+          plugins: {
+              // Add imagur parameters to upload plugin for demo purposes
+              upload: {
+                  serverPath: 'https://api.imgur.com/3/image',
+                  fileFieldName: 'image',
+                  headers: {
+                      'Authorization': 'Client-ID bc91fae7936f4c1'
+                  },
+                  urlPropertyName: 'data.link'
+              }}
+          });
+
+          $('#' + editorId).trumbowyg('html', placeholder);
+    });
+}
+
+function reinitializeEditor(editorId,htmlContent) {
+
+        // jQuery code for Trumbowyg initialization over the ID of each editor element
+        $('#' + editorId).trumbowyg({
+          autogrowOnEnter: true,
+          btnsDef: {
+                  // Create a new dropdown
+                  image: {
+                      dropdown: ['insertImage', 'upload'],
+                      ico: 'insertImage'
+                          }},
+          // Redefine the button pane
+          btns: [
+              ['formatting'],
+              ['strong', 'em', 'del'],
+              ['superscript', 'subscript'],
+              ['link'],
+              ['image'], // Our fresh created dropdown
+              ['justifyLeft', 'justifyCenter', 'justifyRight', 'justifyFull'],
+              ['unorderedList', 'orderedList'],
+              ['horizontalRule'],
+              ['removeformat'],
+              ['fullscreen']],
+          plugins: {
+              // Add imagur parameters to upload plugin for demo purposes
+              upload: {
+                  serverPath: 'https://api.imgur.com/3/image',
+                  fileFieldName: 'image',
+                  headers: {
+                      'Authorization': 'Client-ID xxxxxxxxxxxx'
+                  },
+                  urlPropertyName: 'data.link'
+              }}
+          });
+
+          $('#' + editorId).trumbowyg('html', htmlContent);
+    }
 
 document.addEventListener("DOMContentLoaded", function () {
     const articleIds = ['precontent', 'acknowledgments', 'content-index', 'sec1', 'sec2', 'sec3', 'sec4', 'refs'];
@@ -219,6 +331,9 @@ document.addEventListener("DOMContentLoaded", function () {
     // Wait for all fetch promises to complete
     Promise.all(fetchPromises)
         .then(() => {
+
+            initializeEditors();
+
             // Initialize tooltips after all articles' content is loaded
             initializeTooltips();
 
