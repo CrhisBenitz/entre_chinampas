@@ -31,12 +31,6 @@ function closeLightbox() {
   // Find the iframe within the active lightbox
   var iframe = activeLightbox.querySelector('iframe');
 
-  // Hide the overlay and active lightbox
-  overlay.style.display = "none";
-  activeLightbox.style.display = "none";
-
-  // Remove the 'lightbox-active' class from the body
-  document.body.classList.remove("lightbox-active");
 
   if (iframe.tagName.toLowerCase() === 'iframe') {
      var iframeContent = iframe.contentDocument || iframe.contentWindow.document;
@@ -46,6 +40,15 @@ function closeLightbox() {
          videoElement.pause();
      }
  }
+ 
+  // Hide the overlay and active lightbox
+  overlay.style.display = "none";
+  activeLightbox.style.display = "none";
+
+  // Remove the 'lightbox-active' class from the body
+  document.body.classList.remove("lightbox-active");
+
+
 }
 
 
