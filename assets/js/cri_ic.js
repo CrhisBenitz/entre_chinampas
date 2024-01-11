@@ -332,6 +332,7 @@ document.addEventListener("DOMContentLoaded", function () {
     Promise.all(fetchPromises)
         .then(() => {
 
+            
             initializeEditors();
 
             // Initialize tooltips after all articles' content is loaded
