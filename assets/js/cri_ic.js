@@ -33,14 +33,8 @@ function closeLightbox() {
 
 
   if (iframe.tagName.toLowerCase() === 'iframe') {
-     var iframeContent = iframe.contentDocument || iframe.contentWindow.document;
-     var videoElement = iframeContent.querySelector('video');
-
-     if (videoElement && typeof videoElement.pause === 'function') {
-         videoElement.pause();
-     }
+     iframe.outerHTML = iframe.outerHTML;
  }
- 
   // Hide the overlay and active lightbox
   overlay.style.display = "none";
   activeLightbox.style.display = "none";
