@@ -63,18 +63,17 @@ function initializeFiguresAndReferences() {
     // Create reference text
     var referenceText = "figura" + figureNumber;
 
-    // Add reference to the text
-    var referenceSpan = document.getElementById("ref-" + figureID);
-    if (referenceSpan) {
-      // referenceSpan.textContent = referenceText;
+    // Find the reference span based on the data-figure-id attribute
+    var referenceSpans = document.querySelectorAll('.figure-reference[data-figure-id="' + figureID + '"]');
 
+    referenceSpans.forEach(function(referenceSpan) {
       // Create hyperlink to the figure with the reference text as its content
       var figureLink = document.createElement('a');
       figureLink.href = '#' + figureID;
       figureLink.textContent = referenceText;
       referenceSpan.appendChild(document.createTextNode(' ')); // Add space between the reference text and the link
       referenceSpan.appendChild(figureLink);
-    }
+    });
   });
 }
 
@@ -332,7 +331,7 @@ document.addEventListener("DOMContentLoaded", function () {
     Promise.all(fetchPromises)
         .then(() => {
 
-            
+
             initializeEditors();
 
             // Initialize tooltips after all articles' content is loaded
