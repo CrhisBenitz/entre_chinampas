@@ -329,6 +329,30 @@ document.addEventListener("DOMContentLoaded", function () {
         .then(() => {
 
 
+          var navbar = document.getElementById('navbar');
+          var navLinks = document.querySelector('.nav-links');
+
+          window.addEventListener('scroll', function () {
+              if (window.scrollY > 0) {
+                  navbar.style.height = '50px';
+              } else {
+                  navbar.style.height = '100px';
+              }
+          });
+
+          navbar.addEventListener('mouseenter', function () {
+              navbar.style.height = '100px';
+          });
+
+          navbar.addEventListener('mouseleave', function () {
+              navbar.style.height = '50px';
+          });
+
+          document.querySelector('.logo').addEventListener('click', function () {
+              navLinks.classList.toggle('show');
+          });
+
+
             initializeEditors();
 
             // Initialize tooltips after all articles' content is loaded
@@ -336,6 +360,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
             // Now call initializeFiguresAndReferences
             initializeFiguresAndReferences();
+
+
 
         });
 });
