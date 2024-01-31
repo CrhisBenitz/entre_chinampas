@@ -1958,6 +1958,7 @@ button,
       padding: 2.22222em;
       width: calc(100% + 4.44444em); }
   #sidebar .toggle {
+    margin-top: .5em;
     text-decoration: none;
     -moz-transition: left 0.5s ease;
     -webkit-transition: left 0.5s ease;
@@ -2053,7 +2054,7 @@ button,
           margin-left: -0.4375em; }
       body.is-preload #sidebar {
         display: none; } }
-  @media screen and (max-width: 736px) {
+  /* @media screen and (max-width: 736px) {
     #sidebar .toggle {
       text-indent: 7.25em;
       width: 7.25em; }
@@ -2071,7 +2072,7 @@ button,
         left: 1em;
         position: absolute;
         top: 1em;
-        width: 5em; } }
+        width: 5em; } } */
 
 /* Header */
 #header {
@@ -2578,6 +2579,65 @@ button,
       padding-bottom: 2em;
     }
 
+    @media screen and (max-width: 800px) {
+
+
+      .square {
+        width: 45%;
+      }
+
+
+      .text-box-brown {
+      width: 95%;
+      }
+
+    }
+
+    @media screen and (max-width: 450px) {
+
+
+      .square {
+        width: 50%;
+        margin-right: 2px;
+        padding: 3px;
+        margin-block-end: 1%;
+        margin-inline: 1%;
+
+      }
+
+
+      .text-box-brown {
+      width: 100%;
+      }
+
+
+      .title-box-left {
+        width: 90%;
+        height: 34px;
+        font-size: 9pt !important;
+      }
+
+      .title-box-right {
+        width: 90%;
+        height: 34px;
+        font-size: 9pt !important;
+      }
+
+      .text-box-right {
+        width: 95%;
+        padding: 3px;
+        font-size: 8pt !important;
+        }
+
+      .text-box-left {
+        width: 95%;
+        padding: 3px;
+        font-size: 8pt !important;
+
+        }
+
+    }
+
 
     .image-cintillo {
         display: block;
@@ -2619,14 +2679,15 @@ button,
 
     #navbar {
         display: flex;
-        justify-content: space-between;
-        align-items: start;
+        justify-content: end;
+        align-items: stretch;
         flex-direction: column;
     }
 
     .logo {
         color: white;
         font-size: 1.5em;
+        line-height: 1.1em;
     }
 
     .nav-links {
@@ -2642,6 +2703,7 @@ button,
     .nav-links a {
         text-decoration: none;
         color: white;
+        border-bottom: none;
     }
 
     .dropdown {
@@ -2660,12 +2722,12 @@ button,
         display: block;
     }
 
-    @media only screen and (max-width: 600px) {
+    @media only screen and (max-width: 800px) {
         .nav-links {
             display: none;
             flex-direction: column;
             position: absolute;
-            top: 60px;
+            top: 80px;
             left: 0;
             width: 100%;
             background-color: #333;
@@ -2681,14 +2743,8 @@ button,
             text-align: center;
         }
 
-        #navbar {
-            flex-direction: column;
-            align-items: flex-start;
-            transition: height 2s ease;
-        }
-
-        #navbar .logo {
-            margin-bottom: 10px;
+        #navbar .nav-items{
+            justify-content: center;
         }
     }
 
@@ -2698,3 +2754,53 @@ button,
       align-items: end;
       flex-direction: row;
     }
+
+
+    .precontent {
+      /* margin-top: 150px; */
+    }
+
+    .acknowledgments {
+      margin-top: 150px;
+    }
+
+
+    .vignette-repo {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 4em;
+      height: 4em;
+      background-size: contain;
+      background-repeat: no-repeat;
+      z-index: 1;
+      background-image: url(../../images/fig_reportero.jpg);
+    }
+
+    .vignette-tlato {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 4em;
+      height: 4em;
+      background-size: contain;
+      background-repeat: no-repeat;
+      z-index: 1;
+      background-image: url(../../images/fig_tlato.jpg);
+    }
+
+    .container-vig {
+    position: relative;
+    padding-left: 6em; /* Adjust as needed */
+}
+
+.vignette-char {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 4em;
+  height: 4em;
+  z-index: 1;
+  font-size: 2em;
+  padding-left: 2em;
+}

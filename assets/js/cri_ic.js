@@ -332,21 +332,21 @@ document.addEventListener("DOMContentLoaded", function () {
           var navbar = document.getElementById('navbar');
           var navLinks = document.querySelector('.nav-links');
 
-          window.addEventListener('scroll', function () {
-              if (window.scrollY > 0) {
-                  navbar.style.height = '50px';
-              } else {
-                  navbar.style.height = '100px';
-              }
-          });
+          // window.addEventListener('scroll', function () {
+          //     if (window.scrollY > 0) {
+          //         navbar.style.height = '50px';
+          //     } else {
+          //         navbar.style.height = '70px';
+          //     }
+          // });
 
-          navbar.addEventListener('mouseenter', function () {
-              navbar.style.height = '100px';
-          });
-
-          navbar.addEventListener('mouseleave', function () {
-              navbar.style.height = '50px';
-          });
+          // navbar.addEventListener('mouseenter', function () {
+          //     navbar.style.height = '70px';
+          // });
+          //
+          // navbar.addEventListener('mouseleave', function () {
+          //     navbar.style.height = '50px';
+          // });
 
           document.querySelector('.logo').addEventListener('click', function () {
               navLinks.classList.toggle('show');
