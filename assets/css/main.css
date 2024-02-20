@@ -2777,6 +2777,11 @@ button,
         #navbar .nav-items{
             justify-content: center;
         }
+
+        .logo {
+            font-size: 1em;
+            line-height: .73em;
+        }
     }
 
     .nav-items {
