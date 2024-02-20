@@ -11,6 +11,22 @@ function openLightbox(lb) {
     document.body.classList.add("lightbox-active");
 }
 
+function openLightboxIm(imageSrc) {
+    var overlay = document.getElementById("overlayIm");
+    var lightbox = document.getElementById("image-lightbox");
+    var lightboxImage = document.getElementById("lightbox-image");
+
+    // Set the source of the lightbox image to the clicked image
+    lightboxImage.src = imageSrc;
+
+    // Display the overlay and lightbox
+    overlay.style.display = "block";
+    lightbox.style.display = "block";
+
+    // Add the 'lightbox-active' class to the body
+    document.body.classList.add("lightbox-active");
+}
+
 
 function closeLightbox() {
   var overlay = document.getElementById("overlay");
@@ -35,6 +51,32 @@ function closeLightbox() {
   if (iframe.tagName.toLowerCase() === 'iframe') {
      iframe.outerHTML = iframe.outerHTML;
  }
+  // Hide the overlay and active lightbox
+  overlay.style.display = "none";
+  activeLightbox.style.display = "none";
+
+  // Remove the 'lightbox-active' class from the body
+  document.body.classList.remove("lightbox-active");
+
+
+}
+
+function closeLightboxIm() {
+  var overlay = document.getElementById("overlayIm");
+
+  // Find the active lightbox
+  var lightboxes = document.querySelectorAll('.lightbox-containerIm');
+  var activeLightbox;
+
+  for (var i = 0; i < lightboxes.length; i++) {
+      if (window.getComputedStyle(lightboxes[i]).display !== 'none') {
+          activeLightbox = lightboxes[i];
+          break;
+      }
+  }
+
+  if (!activeLightbox) return; // No active lightbox found
+
   // Hide the overlay and active lightbox
   overlay.style.display = "none";
   activeLightbox.style.display = "none";
