@@ -2447,8 +2447,9 @@ button,
       max-height: 90vh;
       box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* optional shadow effect */
       z-index: 1000; /* higher z-index than overlay */
-      text-align: center;
-  }
+      justify-content: center;
+      align-items: center;
+      }
 
   .lightbox-containerIm img {
       max-width: 100%;
@@ -2456,8 +2457,6 @@ button,
       width: auto; /* Ensure the image maintains its aspect ratio */
       height: auto;
       max-width: 100%;
-      display: block; /* Display images as block elements */
-      margin: 0 auto;
 
   }
 

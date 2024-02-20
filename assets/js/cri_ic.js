@@ -21,7 +21,7 @@ function openLightboxIm(imageSrc) {
 
     // Display the overlay and lightbox
     overlay.style.display = "block";
-    lightbox.style.display = "block";
+    lightbox.style.display = "flex";
 
     // Add the 'lightbox-active' class to the body
     document.body.classList.add("lightbox-active");
