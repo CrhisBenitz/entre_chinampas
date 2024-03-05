@@ -735,6 +735,8 @@ hr {
           margin-top: -3em; }
           .row.gtr-200.gtr-uniform > * {
             padding-top: 3em; } }
+
+
   @media screen and (max-width: 736px) {
     .row {
       display: flex;
@@ -987,6 +989,19 @@ hr {
           margin-top: -3em; }
           .row.gtr-200.gtr-uniform > * {
             padding-top: 3em; } }
+ .p-rows {
+   font-size: 1.5em;
+   text-align: left;
+   font-weight: bold;
+ }
+
+@media only screen and (max-width: 980px) {
+    .gtr-uniform .col-3 {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+}
+
 
 /* Section/Article */
 section.special, article.special {
@@ -1978,7 +1993,8 @@ button,
     white-space: nowrap;
     top: 0;
     width: 6em;
-    z-index: 10000; }
+    z-index: 10000;
+    color: "white" !important;}
     #sidebar .toggle:before {
       -moz-osx-font-smoothing: grayscale;
       -webkit-font-smoothing: antialiased;
@@ -2073,6 +2089,20 @@ button,
         position: absolute;
         top: 1em;
         width: 5em; } } */
+
+  @media screen and (max-width: 1280px) {
+
+      #sidebar .toggle {
+        line-height: 8.3em;
+         }
+        }
+
+  @media screen and (max-width: 600px) {
+
+      #sidebar .toggle {
+        line-height: 6.9em;
+         }
+        }
 
 /* Header */
 #header {
@@ -2343,11 +2373,13 @@ button,
 }
 
   .figure img {
-  max-width: 50%; /* Optional: Ensure the image doesn't exceed the width of the container */
+  max-width: 75%; /* Optional: Ensure the image doesn't exceed the width of the container */
   height: auto;    /* Optional: Maintain the aspect ratio of the image */
   margin: 0 1%;   /* Center the image horizontally */
-  max-height: 40vh;
-  border-radius:10px;}
+  max-height: 65vh;
+  border-radius:10px;
+  }
+
 
   .figure-nonumber img {
     max-width: 50%; /* Optional: Ensure the image doesn't exceed the width of the container */
@@ -2685,10 +2717,13 @@ button,
         display: block;
         overflow-x: hidden;
         margin: 0 auto; /* Center the container */
-        max-width: 90%; /* Set the maximum width to 90% of the page width */
+        max-width: 98vw; /* Set the maximum width to 90% of the page width */
+        width: 98vw
+        margin-left: -3em;
     }
 
     .image-portada img {
+      margin-top: 70px;
         width: 100%;
         height: auto;
     }
@@ -2713,12 +2748,13 @@ button,
         justify-content: end;
         align-items: stretch;
         flex-direction: column;
+        height: 50px
     }
 
     .logo {
         color: white;
         font-size: 1.5em;
-        line-height: 1.1em;
+        line-height: 0.7em;
     }
 
     .nav-links {
@@ -2753,7 +2789,17 @@ button,
         display: block;
     }
 
-    @media only screen and (max-width: 800px) {
+    .sublogo {
+      font-size: .7em
+    }
+
+    .imglogoxochi {
+      height: 38px;
+      width: auto;
+      border:0
+    }
+
+    @media only screen and (max-width: 930px) {
         .nav-links {
             display: none;
             flex-direction: column;
@@ -2779,7 +2825,39 @@ button,
         }
 
         .logo {
-            font-size: 1em;
+            font-size: 1.2em;
+            line-height: .73em;
+        }
+    }
+
+
+    @media only screen and (max-width: 930px) {
+        .nav-links {
+            display: none;
+            flex-direction: column;
+            position: absolute;
+            top: 80px;
+            left: 0;
+            width: 100%;
+            background-color: #333;
+            z-index: 1;
+        }
+
+        .nav-links.show {
+            display: flex;
+        }
+
+        .nav-links li {
+            margin: 0;
+            text-align: center;
+        }
+
+        #navbar .nav-items{
+            justify-content: center;
+        }
+
+        .logo {
+            font-size: 1.2em;
             line-height: .73em;
         }
     }
@@ -2789,6 +2867,36 @@ button,
       justify-content: space-between;
       align-items: end;
       flex-direction: row;
+    }
+
+    @media only screen and (max-width: 600px) {
+
+      .p-rows {
+        font-size: 1em;
+        text-align: left;
+        font-weight: bold;
+      }
+
+      .logo {
+          font-size: 1em;
+      }
+
+      .sublogo {
+        font-size: .7em;
+      }
+
+      #navbar {
+        height: 36px; !important
+      }
+
+      .nav-links {
+        top: 66px;
+      }
+
+    .imglogoxochi {
+      height: 31.5px
+    }
+
     }
 
 
@@ -2840,3 +2948,7 @@ button,
   font-size: 2em;
   padding-left: 2em;
 }
+
+
+#sidebar .toggle {
+  color: white;
